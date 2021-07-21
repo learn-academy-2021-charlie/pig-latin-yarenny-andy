@@ -9,7 +9,7 @@ class App extends Component{
     this.state = {
       // "phrase" is the text entered by the user - right now there are test words hard coded to make the process of testing your code faster and easier
       // ACTION ITEM: when you are ready for your full user experience, delete the test words so phrase is assigned an empty string
-      phrase: "alpha through yummy squeal queen fry",
+      phrase: "",
       // "phraseTranslated" is what the user will see appear on the page as Pig Latin, it starts as the preset message and updates when your user clicks the "submit" button
       phraseTranslated: "This is where your translated sentence will appear."
     }
@@ -35,7 +35,10 @@ class App extends Component{
       console.log("vowelsArray:", vowelsArray)
 console.log(currentWord.indexOf(vowelsArray[0]))
       // your code here!
-
+      //Process:
+          //declare a variable named firstVowel that keeps track of the first index of a vowel
+          //if first vowel is at the 0 index return current word .concat "way"
+          
      var firstVowel = currentWord.indexOf(vowelsArray[0])
      var slicedWord = currentWord.slice(2)
      if (firstVowel === 0){
@@ -46,7 +49,11 @@ console.log(currentWord.indexOf(vowelsArray[0]))
        return currentWord.slice(firstVowel +1).concat(currentWord.substring(0,firstVowel)+"uay")
      } else if(firstVowel >=1){
       return currentWord.slice(firstVowel).concat(currentWord.substring(0,firstVowel)+"ay")
+    } else if(firstVowel = -1 && currentWord.includes("y") === true){
+      return currentWord.slice(currentWord.indexOf("y")).concat(currentWord.substring(0,currentWord.indexOf("y"))) + "ay"
     }
+  
+
     
      console.log(currentWord.indexOf(vowelsArray[0]))
         
@@ -116,7 +123,7 @@ console.log(currentWord.indexOf(vowelsArray[0]))
           <button onClick={this.restartGame}>Clear</button>
         </div>
         <p>{this.state.phraseTranslated}</p>
-        <footer>Coded by ~your name here~</footer>
+        <footer>Coded by Yarenny and Andy</footer>
       </>
     )
   }
