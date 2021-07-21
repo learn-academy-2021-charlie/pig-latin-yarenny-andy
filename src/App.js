@@ -15,6 +15,7 @@ class App extends Component{
     }
   }
 
+  
   // The "myPigLatinCodeHere" function is where you will put your logic to convert the sentence entered by the user to Pig Latin
 
   myPigLatinCodeHere = () => {
@@ -32,25 +33,31 @@ class App extends Component{
         return vowel === "a" || vowel === "e" || vowel === "i" || vowel === "o" || vowel === "u"
       })
       console.log("vowelsArray:", vowelsArray)
-
+console.log(currentWord.indexOf(vowelsArray[0]))
       // your code here!
-      let pLatin = (currentWord) => {
-        for(let i=0; i<currentWord.length; i++){
-          if(currentWord[0] === "a" || currentWord[0] === "e" || currentWord[0] === "i" || currentWord[0] === "o" || currentWord[0] === "u"){
-            return currentWord.concat("way")
+
+     var firstVowel = currentWord.indexOf(vowelsArray[0])
+     var slicedWord = currentWord.slice(2)
+     if (firstVowel === 0){
+      return currentWord.concat('way')
+     }else if(firstVowel === 1 && currentWord[0]== "q"){
+      return slicedWord.concat("qu").concat("ay")
+     } else if(firstVowel >=1 && currentWord[firstVowel-1]== "q"){
+       return currentWord.slice(firstVowel +1).concat(currentWord.substring(0,firstVowel)+"uay")
+     } else if(firstVowel >=1){
+      return currentWord.slice(firstVowel).concat(currentWord.substring(0,firstVowel)+"ay")
+    }
+    
+     console.log(currentWord.indexOf(vowelsArray[0]))
         
-          } 
-          else if()
-          return currentWord
-        }
-      }
-        console.log(pLatin(currentWord))
+
       // Remember: console.log is your friend :)
 
 
       // ACTION ITEM: change the value of currentWord to the name of whatever variable you made containing your Pig Latin'd word
-       
-    })
+        // }
+      })
+    
       
 
     // joining the array back to a string of translated words
