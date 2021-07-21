@@ -34,14 +34,24 @@ class App extends Component{
       console.log("vowelsArray:", vowelsArray)
 
       // your code here!
-
+      let pLatin = (currentWord) => {
+        for(let i=0; i<currentWord.length; i++){
+          if(currentWord[0] === "a" || currentWord[0] === "e" || currentWord[0] === "i" || currentWord[0] === "o" || currentWord[0] === "u"){
+            return currentWord.concat("way")
+        
+          } 
+          else if()
+          return currentWord
+        }
+      }
+        console.log(pLatin(currentWord))
       // Remember: console.log is your friend :)
 
 
       // ACTION ITEM: change the value of currentWord to the name of whatever variable you made containing your Pig Latin'd word
-      return currentWord
+       
     })
-
+      
 
     // joining the array back to a string of translated words
     // no need to change this variable
